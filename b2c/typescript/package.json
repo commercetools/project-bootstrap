@@ -1,0 +1,12 @@
+{
+  "name": "good-store",
+  "version": "1.0.0",
+  "scripts": {
+    "bootstrap": "ts-node index.ts",
+    "lint": "eslint --fix \"**/*.+(ts|tsx)\""
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@commercetools-demo/shared-code": "1.0.0"
+  }
+}

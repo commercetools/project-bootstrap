@@ -1,0 +1,47 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "plugins": ["@typescript-eslint", "import", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": true,
+      "typescript": true
+    }
+  },
+     "ignorePatterns": [
+       "bin/",
+       "public/",
+       "node_nodules/",
+       "*.config.js",
+       ".eslintrc.js",
+       "shared-code/lib/index.ts",
+       "coco-instance/",
+       "dist/"
+     ],
+  "rules": {
+    "@typescript-eslint/no-empty-function": "off",
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "import/no-named-as-default": "off",
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", ["external", "internal", "unknown"], ["parent", "sibling", "index"], "type", "object"],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ]
+  }
+}

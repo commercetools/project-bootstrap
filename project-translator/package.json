@@ -1,0 +1,14 @@
+{
+  "name": "project-translator",
+  "version": "1.0.0",
+  "scripts": {
+    "translate": "ts-node src/index.ts",
+    "lint": "eslint --fix \"**/*.+(ts|tsx)\""
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@commercetools-demo/shared-code": "1.0.0",
+    "@commercetools/sync-actions": "^5.15.0",
+    "ts-node": "^10.9.1"
+  }
+}
