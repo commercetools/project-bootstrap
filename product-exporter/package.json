@@ -1,0 +1,14 @@
+{
+  "name": "product-exporter",
+  "version": "1.0.0",
+  "scripts": {
+    "exportProducts": "ts-node lib/exportProducts.ts",
+    "exportProductTypes": "ts-node lib/exportProductTypes.ts",
+    "exportCategories": "ts-node lib/exportCategories.ts",
+    "lint": "eslint --fix \"**/*.+(ts|tsx)\""
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@commercetools-demo/shared-code": "1.0.0"
+  }
+}

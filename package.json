@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "workspaces": [
+    "shared-code",
+    "product-exporter",
+    "project-translator",
+    "b2c/typescript"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint --fix \"**/*.+(ts|tsx)\""
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.0",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.5.0",
+    "@types/node-fetch": "^2.6.4",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^8.0.3",
+    "jest": "^29.6.2",
+    "prettier": "^3.0.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  }
+}

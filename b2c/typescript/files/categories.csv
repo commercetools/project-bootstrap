@@ -1,0 +1,30 @@
+key,externalId,name_en-GB,name_en-US,name_de-DE,description_en-GB,description_en-US,description_de-DE,slug_en-GB,slug_en-US,slug_de-DE,parentId,orderHint
+home-decor,9,Home Decor,Home Decor,Dekoration,Home Decor,Home Decor,Dekoration,home-decor,home-decor,home-decor,,0.1
+kitchen,13,Kitchen,Kitchen,Küche,Kitchen,Kitchen,Küche,kitchen,kitchen,kitchen,,0.3
+new-arrivals,19,New Arrivals,New Arrivals,Neuheiten,New Arrivals,New Arrivals,Neuheiten,new-arrivals,new-arrivals,ganz-neu,,0.4
+furniture,1,Furniture,Furniture,Möbel,Furniture,Furniture,Möbel,furniture,furniture,furniture,,0.2
+bar-and-glassware,11,Bar and Glassware,Bar and Glassware,Gläser und Barzubehör,Bar and Glassware,Bar and Glassware,Gläser und Barzubehör,bar-and-glassware,bar-and-glassware,bar-and-glassware,kitchen,.82
+dinnerware,12,Serving & Tableware,Dinnerware,Geschirr,Serving & Tableware,Dinnerware,Geschirr,serving-and-tableware,serving-and-tableware,dinnerware,kitchen,.75
+serveware,20,Collections,Serveware,Alles zum Servieren,Collections,Serveware,Alles zum Servieren,kitchen-collections,kitchen-collections,serveware,kitchen,.86
+bedroom-furniture,5,Bedroom Furniture,Bedroom Furniture,Schlafzimmer,Bedroom Furniture,Bedroom Furniture,Schlafzimmer,bedroom-furniture,bedroom-furniture,bedroom-furniture,furniture,.9
+living-room-furniture,8,Living Room Furniture,Living Room Furniture,Wohnzimmer,Living Room Furniture,Living Room Furniture,Wohnzimmer,living-room-furniture,living-room-furniture,living-room-furniture,furniture,.9
+collections,10,Collections,Collections,Sonderkollektionen,Collections,Collections,Sonderkollektionen,furniture-collections,furniture-collections,collections,furniture,.7
+bar-accessories,23,Bar Accessories,Bar Accessories,Barzubehör,Bar Accessories,Bar Accessories,Barzubehör,bar-accessories,bar-accessories,bar-accessories,bar-and-glassware,.36
+glassware,15,Glassware,Glassware,Gläser,Glassware,Glassware,Gläser,glassware,glassware,glassware,bar-and-glassware,.23
+bowls,16,Bowls,Bowls,Schalen,Bowls,Bowls,Schalen,bowls,bowls,bowls,dinnerware,.56
+plates,14,Plates,Plates,Platten,Plates,Plates,Platten,plates,plates,plates,dinnerware,.82
+bedding,26,Bedding,Bedding,Bettwäsche,Bedding,Bedding,Bettwäsche,bedding,bedding,bettwsche,home-decor,.5
+room-decor,27,Room Decor,Room Decor,Zimmerdekoration,Room Decor,Room Decor,Zimmerdekoration,room-decor,room-decor,zimmerdekoration,home-decor,.8
+serving-platters,18,Serving Platters,Serving Platters,Servierplatten,Serving Platters,Serving Platters,Servierplatten,serving-platters,serving-platters,serving-platters,serveware,.0004
+cheese-trays,22,Cheese Trays,Cheese Trays,Käseplatten,Cheese Trays,Cheese Trays,Käseplatten,cheese-trays,cheese-trays,cheese-trays,serveware,.12
+bakeware,24,Bakeware,Bakeware,Backutensilien,Bakeware,Bakeware,Backutensilien,bakeware,bakeware,bakeware,dinnerware,.42
+the-minimalist,21,The Minimalist,The Minimalist,The Minimalist,The Minimalist,The Minimalist,The Minimalist,the-minimalist,the-minimalist,the-minimalist,collections,.003
+tables,6,Tables,Tables,Tische,Tables,Tables,Tische,living-room-tables,living-room-tables,coffee-tables,living-room-furniture,.25
+the-traditionalist,25,The Traditionalist,The Traditionalist,The Traditionalist,The Traditionalist,The Traditionalist,The Traditionalist,the-traditionalist,the-traditionalist,the-traditionalist,collections,0.0033
+the-modernist,17,The Modernist,The Modernist,The Modernist,The Modernist,The Modernist,The Modernist,the-modernist,the-modernist,the-modernist,collections,.0035
+armchairs,3,Armchairs,Chairs,Stühle,Armchairs,Chairs,Stühle,armchairs,armchairs,chairs,living-room-furniture,.3
+storage--tables,4,Storage & Tables,Dressers,Kommoden,Storage & Tables,Dressers,Kommoden,storage-and-tables,storage-and-tables,dressers,bedroom-furniture,.1
+sofas,2,Sofas,Sofas,Sofas,Sofas,Sofas,Sofas,sofas,sofas,sofas,living-room-furniture,.3
+beds,7,Beds,Beds,Betten,Beds,Beds,Betten,beds,beds,beds,bedroom-furniture,.4
+home-accents,29,Home Accents,Home Accents,Accessoires,Home Accents,Home Accents,Accessoires,home-accents,home-accents,home-akzente,room-decor,.5
+rugs,28,Rugs,Rugs,Teppiche,Rugs,Rugs,Teppiche,rugs,rugs,teppiche,room-decor,.4

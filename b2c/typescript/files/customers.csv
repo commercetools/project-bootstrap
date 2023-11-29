@@ -1,0 +1,10 @@
+key,firstName,lastName,password,email,dateOfBirth,streetName,streetNumber,postalCode,city,country,customerGroups
+jen-commercetools,Jen,Commercetools,123,jen@commercetools.com,,Adams-Lehmann-Straße,44,80797,Munich,Germany,
+seb-commercetools,Seb,Commercetools,123,seb@commercetools.com,,Adams-Lehmann-Straße,44,80797,Munich,Germany,
+peter-commercetools,Peter,Commercetools,123,peter@commercetools.com,,Red Lion Square,12,WC1R 4HQ,London,United Kingdom,
+piet-commercetools,Piet,Commercetools,123,piet@commercetools.com,,Teutonengasse,3,07743,Jena,Germany,
+pierre-commercetools,Pierre,Commercetools,123,pierre@commercetools.com,,,,,Paris,France,
+pedro-commercetools,Pedro,Commercetools,123,pedro@commercetools.com,,,,,Barcelona,Spain,
+john-commercetools,John,Commercetools,123,john@commercetools.com,,Blackwell St Bay,11,27700,Chicago,United States,
+paul-commercetools,Paul,Commercetools,123,paul@commercetools.com,,Blackwell St Bay,11,27701,Durham,United States,
+manuel-commercetools,Manuel,Commercetools,123,manuel@commercetools.com,,Blackwell St Bay,11,27701,Durham,United States,

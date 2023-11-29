@@ -1,0 +1,36 @@
+{
+  "name": "@commercetools-demo/shared-code",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc --project tsconfig-build.json",
+    "watch": "tsc --watch --project tsconfig-build.json",
+    "test": "jest --watchAll",
+    "lint": "eslint --fix \"**/*.+(test.)+(ts|tsx)\""
+  },
+  "main": "dist/index.js",
+  "main:src": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@commercetools/importapi-sdk": "^4.6.2",
+    "@commercetools/platform-sdk": "^5.0.0",
+    "@commercetools/sdk-client-v2": "^2.2.0",
+    "@google-cloud/translate": "^7.1.1",
+    "cli-progress": "^3.11.2",
+    "country-locale-map": "^1.8.11",
+    "country-to-currency": "^1.0.6",
+    "csv-parse": "^5.4.0",
+    "csv-stringify": "^6.4.0",
+    "dotenv": "^16.0.1",
+    "lodash.deburr": "^4.1.0",
+    "node-fetch": "^2.6.7",
+    "prompts": "^2.4.2",
+    "simple-json-db": "^2.0.0",
+    "stream-transform": "^3.2.6"
+  },
+  "devDependencies": {
+    "@types/lodash.deburr": "^4.1.7",
+    "@types/prompts": "^2.4.9"
+  }
+}
