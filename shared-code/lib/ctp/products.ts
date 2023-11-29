@@ -3,10 +3,15 @@ import { apiRoot } from './client';
 import { DEFAULT_BATCH_SIZE } from '../helper/config';
 import { deleteItems } from '../helper/deleteHelpers';
 
-export const getProducts = async (limit: number, offset?: number, expand?: string | Array<string>) => {
+export const getProducts = async (
+  limit: number,
+  offset?: number,
+  expand?: string | Array<string>,
+  where?: string | Array<string>,
+) => {
   const { body } = await apiRoot
     .products()
-    .get({ queryArgs: { limit: limit, offset: offset, expand: expand } })
+    .get({ queryArgs: { limit: limit, offset: offset, expand: expand, where: where } })
     .execute();
   return body;
 };
@@ -71,16 +76,17 @@ export const deleteAllProducts = async (batchSize = DEFAULT_BATCH_SIZE) => {
 };
 
 export const publishAllProducts = async (batchSize = DEFAULT_BATCH_SIZE) => {
-  const products = await getProducts(1);
+  const unpublishedOrChanged = 'masterData(published="false" or hasStagedChanges="true")';
+  const products = await getProducts(1, undefined, undefined, unpublishedOrChanged);
   const total = products.total || 0;
   for (let i = 0; i <= total; i = i + batchSize) {
     const max = Math.min(i + 500, total);
-    await Promise.all(
-      (await getProducts(DEFAULT_BATCH_SIZE, i)).results.map((product) => {
-        return publishProduct(product.id, product.version);
-      }),
-    );
-    console.log('Publishing product ' + i + ' to ' + max);
+    const { results } = await getProducts(DEFAULT_BATCH_SIZE, i, undefined, unpublishedOrChanged);
+    console.log('Publishing products ' + i + ' to ' + max);
+    for (const product of results) {
+      await publishProduct(product.id, product.version);
+    }
+    console.log('Published products ' + i + ' to ' + max);
   }
 };
 

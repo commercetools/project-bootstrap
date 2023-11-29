@@ -134,7 +134,11 @@ const questions = async (runnerConfig: RunnerConfig) => {
   ]);
 };
 
-export const deleteRunner = async (actions: Array<Action>) => {
+export const deleteRunner = async (actions: Array<Action> | undefined) => {
+  if (!actions) {
+    console.log('At least one action is required.');
+    return;
+  }
   for (const action of actions) {
     switch (action) {
       case Action.CATEGORIES: {
@@ -197,8 +201,12 @@ export const deleteRunner = async (actions: Array<Action>) => {
   }
 };
 
-export const importRunner = async (importRunnerConfig: RunnerConfig, actions: Array<Action>) => {
+export const importRunner = async (importRunnerConfig: RunnerConfig, actions: Array<Action> | undefined) => {
   const importContainerPrefix = process.env['IMPORT_CONTAINER_NAME'] || 'store';
+  if (!actions) {
+    console.log('At least one action is required.');
+    return;
+  }
   for (const action of actions) {
     const config = importRunnerConfig.find((ele) => ele.id === action);
     if (!config) {
@@ -252,9 +260,15 @@ export const importRunner = async (importRunnerConfig: RunnerConfig, actions: Ar
   }
 };
 export const runner = async (runnerConfig: RunnerConfig) => {
-  const { operation, actions }: { operation: string; actions: Array<Action> } = await questions(runnerConfig);
+  const { operation, actions }: { operation: string; actions: Array<Action> | undefined } = await questions(
+    runnerConfig,
+  );
 
-  console.log('Running ' + operation + ' for ' + actions.join(' '));
+  if (actions && actions.length > 0) {
+    console.log(`Running ${operation} for ${actions.join(' ')}`);
+  } else {
+    console.log(`Running ${operation}`);
+  }
   if (operation === 'import') {
     await importRunner(runnerConfig, actions);
   } else if (operation === 'delete') {
