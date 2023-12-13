@@ -1,7 +1,7 @@
 import { exportCategories } from '@commercetools-demo/shared-code';
 
 // const categories = [__dirname, '../../', 'fashion-store', 'typescript', 'files', 'categories.csv'];
-const categories = [__dirname, '../../', 'b2c', 'typescript', 'files', 'categories.csv'];
+const categories = [__dirname, '../../', process.env.BASE_DIR || 'b2c', 'typescript', 'files', 'categories.csv'];
 exportCategories(
   categories,
   [
@@ -19,5 +19,5 @@ exportCategories(
     'parentId',
     'orderHint',
   ],
-  ['en-AU', 'ar-AE', 'en-CA', 'es-ES', 'es-MX', 'fr-CA', 'fr-FR', 'it-IT', 'ja-JP', 'nl-NL', 'pt-PT', 'zh-CN'],
+  JSON.parse(process.env.IGNORED_LOCALES || ''),
 ).then(() => process.exit());
