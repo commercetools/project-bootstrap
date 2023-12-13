@@ -28,11 +28,13 @@ export const handleAttribute = (
       addLocalizedString(attribute.value, row, attribute.name, obsoleteLocales);
       break;
     }
+    case 'enum':
     case 'lenum': {
       row[attribute.name] = attribute.value.key;
       break;
     }
     case 'boolean':
+    case 'number':
     case 'text':
       row[attribute.name] = attribute.value;
       break;

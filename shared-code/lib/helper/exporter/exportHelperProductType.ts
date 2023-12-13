@@ -5,7 +5,6 @@ export const resolveMappedType = async (attributeType: AttributeType, offset: st
   let result = `${offset}name = "${attributeType.name}"\n`;
   switch (attributeType.name) {
     case 'lenum':
-      attributeType.values;
       for (const value of attributeType.values) {
         const localizedString = await fillMissingLanguages(value.label, languages);
         result += `${offset}localized_value {
@@ -16,6 +15,16 @@ ${offset}  label = {\n`;
         }
         result += `                }
             }
+`;
+      }
+
+      break;
+    case 'enum':
+      for (const value of attributeType.values) {
+        result += `${offset}value {
+${offset}  key   = "${value.key}"
+${offset}  label = "${value.label}"
+${offset}}
 `;
       }
 
