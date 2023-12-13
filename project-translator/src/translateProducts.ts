@@ -2,8 +2,8 @@ import { createSyncProducts } from '@commercetools/sync-actions';
 import countryToCurrency from 'country-to-currency';
 
 import {
-  findBestMatchingForLocalizedString,
-  formatLocalizedStringFromLocalizedString,
+  findBestMatching,
+  fillMissingLanguages,
   getProducts,
   getProductTypes,
   getProject,
@@ -36,16 +36,14 @@ const localizeProductVariantAttribute = async (
   const result = { name: productVariantAttribute.name, value: productVariantAttribute.value };
   switch (attributeDefinition.type.name) {
     case 'ltext': {
-      result.value = await formatLocalizedStringFromLocalizedString(productVariantAttribute.value, languages);
+      result.value = await fillMissingLanguages(productVariantAttribute.value, languages);
       break;
     }
     case 'set': {
       switch (attributeDefinition.type.elementType.name) {
         case 'ltext': {
           result.value = await Promise.all(
-            productVariantAttribute.value.map((item: LocalizedString) =>
-              formatLocalizedStringFromLocalizedString(item, languages),
-            ),
+            productVariantAttribute.value.map((item: LocalizedString) => fillMissingLanguages(item, languages)),
           );
           break;
         }
@@ -188,8 +186,8 @@ export const productTranslation = async () => {
     };
     const nextDraft = {
       ...before,
-      name: await formatLocalizedStringFromLocalizedString(productData.name, languages),
-      description: await formatLocalizedStringFromLocalizedString(productData.description, languages),
+      name: await fillMissingLanguages(productData.name, languages),
+      description: await fillMissingLanguages(productData.description, languages),
       masterVariant: await localizeProductVariant(
         productData.masterVariant,
         product.productType.obj,
@@ -208,7 +206,7 @@ export const productTranslation = async () => {
     if (actions.length > 0) {
       updated++;
       if (isDryRun()) {
-        console.log('On product: ' + findBestMatchingForLocalizedString(productData.name));
+        console.log('On product: ' + findBestMatching(productData.name));
         actions.forEach((action) => console.log('  ', action.action));
       } else {
         await updateProduct(product.id, product.version, actions as Array<ProductUpdateAction>).catch((error) => {

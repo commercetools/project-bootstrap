@@ -1,7 +1,7 @@
 import { createSyncStores } from '@commercetools/sync-actions';
 import {
-  findBestMatchingForLocalizedString,
-  formatLocalizedStringFromLocalizedString,
+  findBestMatching,
+  fillMissingLanguages,
   getStores,
   isDryRun,
   readLanguages,
@@ -21,13 +21,13 @@ export const storeTranslation = async () => {
     };
     const nextDraft = {
       ...before,
-      name: await formatLocalizedStringFromLocalizedString(store.name, languages),
+      name: await fillMissingLanguages(store.name, languages),
     };
     const actions = syncTypes.buildActions(nextDraft, before);
     if (actions.length > 0) {
       updated++;
       if (isDryRun()) {
-        console.log('On store: ' + findBestMatchingForLocalizedString(store.name));
+        console.log('On store: ' + findBestMatching(store.name));
         actions.forEach((action) => console.log('  ', action.action));
       } else {
         await updateStores(store.id, store.version, actions as Array<StoreUpdateAction>);

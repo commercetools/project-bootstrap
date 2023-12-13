@@ -1,6 +1,6 @@
 import { createSyncShippingMethods } from '@commercetools/sync-actions';
 import {
-  formatLocalizedStringFromLocalizedString,
+  fillMissingLanguages,
   readLanguages,
   getShippingMethods,
   updateShippingMethods,
@@ -22,11 +22,8 @@ export const shippingMethodsTranslation = async () => {
     };
     const nextDraft = {
       ...before,
-      localizedName: await formatLocalizedStringFromLocalizedString(localizedName, languages),
-      localizedDescription: await formatLocalizedStringFromLocalizedString(
-        shippingMethod.localizedDescription,
-        languages,
-      ),
+      localizedName: await fillMissingLanguages(localizedName, languages),
+      localizedDescription: await fillMissingLanguages(shippingMethod.localizedDescription, languages),
     };
     const actions = syncTypes.buildActions(nextDraft, before);
     if (actions.length > 0) {

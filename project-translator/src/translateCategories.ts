@@ -1,7 +1,7 @@
 import { createSyncCategories } from '@commercetools/sync-actions';
 import {
-  findBestMatchingForLocalizedString,
-  formatLocalizedStringFromLocalizedString,
+  findBestMatching,
+  fillMissingLanguages,
   readLanguages,
   getCategories,
   updateCategory,
@@ -21,14 +21,14 @@ export const categoryTranslation = async () => {
     };
     const nextDraft = {
       ...before,
-      name: await formatLocalizedStringFromLocalizedString(category.name, languages),
-      description: await formatLocalizedStringFromLocalizedString(category.description, languages),
+      name: await fillMissingLanguages(category.name, languages),
+      description: await fillMissingLanguages(category.description, languages),
     };
     const actions = syncTypes.buildActions(nextDraft, before);
     if (actions.length > 0) {
       updated++;
       if (isDryRun()) {
-        console.log('On category: ' + findBestMatchingForLocalizedString(category.name));
+        console.log('On category: ' + findBestMatching(category.name));
         actions.forEach((action) => console.log('  ', action.action));
       } else {
         await updateCategory(category.id, category.version, actions as Array<CategoryUpdateAction>);

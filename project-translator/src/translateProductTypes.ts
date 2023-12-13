@@ -1,6 +1,6 @@
 import { createSyncProductTypes } from '@commercetools/sync-actions';
 import {
-  formatLocalizedStringFromLocalizedString,
+  fillMissingLanguages,
   getProductTypes,
   isDryRun,
   readLanguages,
@@ -29,8 +29,8 @@ export const typesTranslation = async () => {
       attributes: await Promise.all(
         productType.attributes.map(async (attributeDefinition) => {
           return {
-            label: await formatLocalizedStringFromLocalizedString(attributeDefinition.label, languages),
-            inputTip: await formatLocalizedStringFromLocalizedString(attributeDefinition.inputTip, languages),
+            label: await fillMissingLanguages(attributeDefinition.label, languages),
+            inputTip: await fillMissingLanguages(attributeDefinition.inputTip, languages),
           };
         }),
       ),
@@ -50,7 +50,7 @@ export const typesTranslation = async () => {
                       previous: { ...value },
                       next: {
                         ...value,
-                        label: await formatLocalizedStringFromLocalizedString(value.label, languages),
+                        label: await fillMissingLanguages(value.label, languages),
                       },
                       hint: {
                         attributeName: attribute.name,
@@ -73,8 +73,8 @@ export const typesTranslation = async () => {
                 name: attributeDefinition.name,
               },
               next: {
-                label: await formatLocalizedStringFromLocalizedString(attributeDefinition.label, languages),
-                inputTip: await formatLocalizedStringFromLocalizedString(attributeDefinition.inputTip, languages),
+                label: await fillMissingLanguages(attributeDefinition.label, languages),
+                inputTip: await fillMissingLanguages(attributeDefinition.inputTip, languages),
                 name: attributeDefinition.name,
               },
             };

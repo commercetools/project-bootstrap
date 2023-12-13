@@ -1,7 +1,7 @@
 import { createSyncChannels } from '@commercetools/sync-actions';
 import {
-  findBestMatchingForLocalizedString,
-  formatLocalizedStringFromLocalizedString,
+  findBestMatching,
+  fillMissingLanguages,
   getChannels,
   isDryRun,
   readLanguages,
@@ -21,14 +21,14 @@ export const channelTranslation = async () => {
     };
     const nextDraft = {
       ...before,
-      name: await formatLocalizedStringFromLocalizedString(channel.name, languages),
-      description: await formatLocalizedStringFromLocalizedString(channel.description, languages),
+      name: await fillMissingLanguages(channel.name, languages),
+      description: await fillMissingLanguages(channel.description, languages),
     };
     const actions = syncTypes.buildActions(nextDraft, before);
     if (actions.length > 0) {
       updated++;
       if (isDryRun()) {
-        console.log('On channel: ' + findBestMatchingForLocalizedString(channel.name));
+        console.log('On channel: ' + findBestMatching(channel.name));
         actions.forEach((action) => console.log('  ', action.action));
       } else {
         await updateChannels(channel.id, channel.version, actions as Array<ChannelUpdateAction>);
